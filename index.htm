@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ForHw</title>
+    <style>
+        table{
+            border: 3px solid red;
+            border-collapse: collapse;  /*?*/
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <input id="inp1" type="number" />
+    <button onclick="say1()">Ok</button>
+    <h3 id="cvb1"></h3>
+    <hr />
+
+    <input id="inp2" type="number" />
+    <button onclick="say2()">Ok</button>
+    <h3 id="cvb2"></h3>
+    <hr />
+
+    <input id="inp3" type="number" />
+    <input id="artim" type="number" />
+    <button onclick="say3()">Ok</button>
+    <h3 id="cvb3"></h3>
+    <hr />
+
+    <input id="inp4" type="number" />
+    <button onclick="say4()">Ok</button>
+    <table border="3" width="30" height="20"  cellpadding="5" cellspacing="0">
+        <tr></tr>
+    </table>
+
+    <script>
+        const inp1=document.getElementById('inp1');
+        const cvb1=document.getElementById('cvb1');
+        function say1(){
+            cvb1.innerHTML=`${inp1.value}`;
+            for(let i=inp1.value-1;i>0;i--){
+                // cvb1+=`${i}, `;  DOM-элемент
+                cvb1.innerHTML+=`, ${i}`;
+            }
+        }
+//-----------------------------------------------------------
+        const inp2=document.getElementById('inp2');
+        const cvb2=document.getElementById('cvb2');
+        function say2(){
+            let val=Number(inp2.value);
+            let kod="1";
+            for(let i=1+val;i<=100;i+=val){  //Значение, получаемое через inp2.value, всегда является строкой, даже если оно выглядит как число. - неявное преобразование,+ конкатенация
+                kod+=`, ${i}`;
+            }
+            cvb2.innerHTML=kod;
+        }
+//------------------------------------------------------------
+        const inp3=document.getElementById('inp3');
+        const cvb3=document.getElementById('cvb3');
+        const artim=document.getElementById('artim');
+        function say3(){
+            let val=Number(artim.value);
+            let kod="1";
+            for(let i=val+1;i<=inp3.value;i+=val){
+                kod+=`, ${i}`;
+            }
+            cvb3.innerHTML=kod;
+        }
+//---------------------------------------------------------------
+        const inp4=document.getElementById('inp4');
+        const tr=document.querySelector('tr');
+        const table=document.querySelector('table');
+        function say4(){
+            tr.innerHTML=`<td>${inp4.value}</td>`;
+            for(let i=inp4.value-1;i>=1;i--){
+                tr.innerHTML+=`<td>${i}</td>`;
+            }
+            
+        }
+    </script>
+</body>
+</html>
