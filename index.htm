@@ -38,7 +38,18 @@
         <tr></tr>
     </table>
 
+    <div id="ulduzlar"></div>
+
     <script>
+        const ulduzlar=document.getElementById('ulduzlar');
+        let kod="";
+        let say='';
+        for(let i=1;i<8;i++){
+            say+='*';
+            kod+=say+'</br>';
+        }
+        ulduzlar.innerHTML=kod;
+//--------------------------------------------------------------------
         const inp1=document.getElementById('inp1');
         const cvb1=document.getElementById('cvb1');
         function say1(){
